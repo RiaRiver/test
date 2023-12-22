@@ -1,2 +1,4 @@
 second
 new1
+
+new2
