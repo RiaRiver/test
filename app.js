@@ -17,7 +17,7 @@ const createNewTaskElement = function (taskString) {
   const listItem = document.createElement('li');
 
   // input (checkbox)
-  const checkBox = document.createElement('input'); // checkbx
+  const checkBox = document.createElement('input'); // checkbox
 
   // label
   const label = document.createElement('label'); // label
@@ -161,13 +161,13 @@ const bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
 // cycle over incompleteTaskHolder ul list items
 // for each list item
 for (let i = 0; i < incompleteTaskHolder.children.length; i += 1) {
-  // bind events to list items chldren(tasksCompleted)
+  // bind events to list items children(tasksCompleted)
   bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
 }
 
 // cycle over completedTasksHolder ul list items
 for (let i = 0; i < completedTasksHolder.children.length; i += 1) {
-  // bind events to list items chldren(tasksIncompleted)
+  // bind events to list items children(tasksIncomplete)
   bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
 }
 
