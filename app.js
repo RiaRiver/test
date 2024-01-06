@@ -54,7 +54,7 @@ const createNewTaskElement = function (taskString) {
   listItem.appendChild(editButton);
   listItem.appendChild(deleteButton);
   return listItem;
-}
+};
 
 const addTask = function () {
   console.log('Add Task...');
@@ -68,7 +68,7 @@ const addTask = function () {
   bindTaskEvents(listItem, taskCompleted);
 
   taskInput.value = '';
-}
+};
 
 // Edit an existing task.
 const editTask = function () {
@@ -106,7 +106,7 @@ const deleteTask = function () {
 
   // Remove the parent list item from the ul.
   ul.removeChild(listItem);
-}
+};
 
 // Mark task completed
 const taskCompleted = function () {
@@ -116,7 +116,7 @@ const taskCompleted = function () {
   const listItem = this.parentNode;
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
-}
+};
 
 const taskIncomplete = function () {
   console.log('Incomplete Task...');
@@ -127,11 +127,11 @@ const taskIncomplete = function () {
   const listItem = this.parentNode;
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
-}
+};
 
 const ajaxRequest = function () {
   console.log('AJAX Request');
-}
+};
 
 // The glue to hold it all together.
 
@@ -156,17 +156,17 @@ const bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
 
   // Bind taskCompleted to checkBoxEventHandler.
   checkBox.onchange = checkBoxEventHandler;
-}
+};
 
 // cycle over incompleteTaskHolder ul list items
 // for each list item
-for (let i = 0; i < incompleteTaskHolder.children.length; i++) {
+for (let i = 0; i < incompleteTaskHolder.children.length; i += 1) {
   // bind events to list items chldren(tasksCompleted)
   bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
 }
 
 // cycle over completedTasksHolder ul list items
-for (let i = 0; i < completedTasksHolder.children.length; i++) {
+for (let i = 0; i < completedTasksHolder.children.length; i += 1) {
   // bind events to list items chldren(tasksIncompleted)
   bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
 }
