@@ -79,7 +79,7 @@ const addTask = function () {
 // Edit an existing task.
 const editTask = function () {
   console.log('Edit Task...');
-  console.log('Change "edit-btn" to "save"');
+  console.log('Change "edit" to "save"');
 
   const listItem = this.parentNode;
 
