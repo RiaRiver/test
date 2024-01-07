@@ -18,7 +18,8 @@
 }
 
 @media (max-width: 768px) {
-  .header { text-align: center;
+  .header { 
+    text-align: center;
   }
 }
 .main {
@@ -26,7 +27,8 @@
   width: 500px;
   margin: 0 auto 0;
 }
-.task-title, .task-field {
+.task-title, 
+.task-field {
   width: 56%;
   display: inline-block;
   flex-grow: 1;
@@ -41,7 +43,8 @@
 .task {
   list-style: none;
 }
-input,button{ /* Reset input and button default styles */ 
+input,
+button{ /* Reset input and button default styles */ 
   outline: none;
 }
 .btn {
