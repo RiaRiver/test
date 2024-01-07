@@ -33,17 +33,17 @@ const createNewTaskElement = function (taskString) {
   const deleteButtonImg = document.createElement('img'); // delete button image
 
   label.innerText = taskString;
-  label.className = 'task';
+  label.className = 'task-title';
 
   // Each elements, needs appending
   checkBox.type = 'checkbox';
   editInput.type = 'text';
-  editInput.className = 'task';
+  editInput.className = 'task-field';
 
   editButton.innerText = 'Edit'; // innerText encodes special characters, HTML does not.
-  editButton.className = 'edit';
+  editButton.className = 'edit-btn';
 
-  deleteButton.className = 'delete';
+  deleteButton.className = 'delete-btn';
   deleteButtonImg.src = './remove.svg';
   deleteButton.appendChild(deleteButtonImg);
 
@@ -73,13 +73,13 @@ const addTask = function () {
 // Edit an existing task.
 const editTask = function () {
   console.log('Edit Task...');
-  console.log('Change "edit" to "save"');
+  console.log('Change "edit-btn" to "save"');
 
   const listItem = this.parentNode;
 
   const editInput = listItem.querySelector('input[type = text]');
   const label = listItem.querySelector('label');
-  const editBtn = listItem.querySelector('.edit');
+  const editBtn = listItem.querySelector('.edit-btn');
   const containsClass = listItem.classList.contains('edit-mode');
 
   // If class of the parent is .edit-mode
@@ -145,8 +145,8 @@ const bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
 
   // select ListItems children
   const checkBox = taskListItem.querySelector('input[type = checkbox]');
-  const editButton = taskListItem.querySelector('button.edit');
-  const deleteButton = taskListItem.querySelector('button.delete');
+  const editButton = taskListItem.querySelector('button.edit-btn');
+  const deleteButton = taskListItem.querySelector('button.delete-btn');
 
   // Bind editTask to edit button.
   editButton.onclick = editTask;
