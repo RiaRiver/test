@@ -35,20 +35,20 @@ const createNewTaskElement = function (taskString) {
   listItem.className = 'task';
 
   label.innerText = taskString;
-  label.className = 'task-title';
+  label.className = 'task__title';
 
   // Each elements, needs appending
   checkBox.type = 'checkbox';
-  checkBox.className = 'task-checkbox';
+  checkBox.className = 'task__checkbox';
 
   editInput.type = 'text';
-  editInput.className = 'task-field';
+  editInput.className = 'task__field';
 
   editButton.innerText = 'Edit'; // innerText encodes special characters, HTML does not.
-  editButton.className = 'btn edit-btn';
+  editButton.className = 'btn btn--edit';
 
-  deleteButton.className = 'btn delete-btn';
-  deleteButtonImg.className = 'delete-btn-img';
+  deleteButton.className = 'btn btn--delete';
+  deleteButtonImg.className = 'btn__img';
   deleteButtonImg.src = './remove.svg';
   deleteButtonImg.alt = 'Delete button';
   deleteButton.appendChild(deleteButtonImg);
@@ -85,12 +85,12 @@ const editTask = function () {
 
   const editInput = listItem.querySelector('input[type = text]');
   const label = listItem.querySelector('label');
-  const editBtn = listItem.querySelector('.edit-btn');
-  const containsClass = listItem.classList.contains('edit-mode');
+  const editBtn = listItem.querySelector('.btn--edit');
+  const containsClass = listItem.classList.contains('task--edit');
 
-  // If class of the parent is .edit-mode
+  // If class of the parent is .task--edit
   if (containsClass) {
-    // switch to .edit-mode
+    // switch to .task--edit
     // label becomes the inputs value.
     label.innerText = editInput.value;
     editBtn.innerText = 'Edit';
@@ -99,8 +99,8 @@ const editTask = function () {
     editBtn.innerText = 'Save';
   }
 
-  // toggle .edit-mode on the parent.
-  listItem.classList.toggle('edit-mode');
+  // toggle .task--edit on the parent.
+  listItem.classList.toggle('task--edit');
 };
 
 // Delete task.
@@ -151,8 +151,8 @@ const bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
 
   // select ListItems children
   const checkBox = taskListItem.querySelector('input[type = checkbox]');
-  const editButton = taskListItem.querySelector('button.edit-btn');
-  const deleteButton = taskListItem.querySelector('button.delete-btn');
+  const editButton = taskListItem.querySelector('.btn--edit');
+  const deleteButton = taskListItem.querySelector('.btn--delete');
 
   // Bind editTask to edit button.
   editButton.onclick = editTask;
