@@ -9,7 +9,7 @@
 
 const taskInput = document.getElementById('new-task'); // Add a new task.
 const addButton = document.getElementsByTagName('button')[0]; // first button
-const incompleteTaskHolder = document.getElementById('incompleteTasks'); // ul of #incompleteTasks
+const incompleteTaskHolder = document.getElementById('incomplete-tasks'); // ul of #incomplete-tasks
 const completedTasksHolder = document.getElementById('completed-tasks'); // completed-tasks
 
 // New task list item
@@ -80,11 +80,11 @@ const editTask = function () {
   const editInput = listItem.querySelector('input[type = text]');
   const label = listItem.querySelector('label');
   const editBtn = listItem.querySelector('.edit');
-  const containsClass = listItem.classList.contains('editMode');
+  const containsClass = listItem.classList.contains('edit-mode');
 
-  // If class of the parent is .editmode
+  // If class of the parent is .edit-mode
   if (containsClass) {
-    // switch to .editmode
+    // switch to .edit-mode
     // label becomes the inputs value.
     label.innerText = editInput.value;
     editBtn.innerText = 'Edit';
@@ -93,8 +93,8 @@ const editTask = function () {
     editBtn.innerText = 'Save';
   }
 
-  // toggle .editmode on the parent.
-  listItem.classList.toggle('editMode');
+  // toggle .edit-mode on the parent.
+  listItem.classList.toggle('edit-mode');
 };
 
 // Delete task.
@@ -123,7 +123,7 @@ const taskIncomplete = function () {
 
   // Mark task as incomplete.
   // When the checkbox is unchecked
-  // Append the task list item to the #incompleteTasks.
+  // Append the task list item to the #incomplete-tasks.
   const listItem = this.parentNode;
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
